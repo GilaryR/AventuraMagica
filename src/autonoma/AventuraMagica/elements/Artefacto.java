@@ -1,11 +1,12 @@
 package autonoma.AventuraMagica.elements;
 
+import autonoma.AventuraMagicaBase.elements.Sprite;
+
 /**
  *
  * @author Luisa Fernanda Henao
  */
 
-import AventuraMagicaBase.elements.Sprite;
 
 /**
  * Clase base para los artefactos mágicos del juego

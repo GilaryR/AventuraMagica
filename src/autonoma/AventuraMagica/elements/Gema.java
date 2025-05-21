@@ -1,8 +1,6 @@
 
 package autonoma.AventuraMagica.elements;
 
-import AventuraMagica.elements.Jugador;
-import AventuraMagica.elements.Objeto;
 import java.awt.Color;
 import java.awt.Graphics;
 

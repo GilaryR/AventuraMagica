@@ -2,6 +2,7 @@
 package autonoma.AventuraMagica.elements;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Clase principal que gestiona el estado y flujo del juego.

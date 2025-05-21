@@ -1,10 +1,6 @@
 package autonoma.AventuraMagica.elements;
 
-import autonoma.AventuraMagica.elements.Artefacto;
-import autonoma.AventuraMagica.elements.Enemigo;
-import autonoma.AventuraMagica.elements.Obstaculo;
-import autonoma.autonoma.AventuraMagica.elements.Acertijo;
-import autonoma.AventuraMagica.exception.NivelNoCompletadoException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
