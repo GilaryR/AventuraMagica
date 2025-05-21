@@ -2,6 +2,7 @@
 package autonoma.AventuraMagica.elements;
 
 import autonoma.AventuraMagica.elements.Artefacto;
+import autonoma.AventuraMagica.exception.JugadorSinVidaException;
 import autonoma.AventuraMagicaBase.elements.SpriteMobile;
 import java.awt.Color;
 import java.awt.Graphics;

@@ -1,6 +1,7 @@
 package autonoma.AventuraMagica.elements;
 
 
+import autonoma.AventuraMagica.exception.NivelNoCompletadoException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
