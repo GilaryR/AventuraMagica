@@ -1,7 +1,6 @@
 
 package autonoma.AventuraMagica.elements;
 
-import AventuraMagica.exception.EnemigoDerrotadoException;
 import autonoma.AventuraMagica.exception.EnemigoDerrotadoException;
 
 
