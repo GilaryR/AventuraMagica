@@ -3,6 +3,8 @@ package autonoma.AventuraMagica.elements;
 
 
 
+import autonoma.AventuraMagicaBase.elements.EscritorArchivoTextoPlano;
+import autonoma.AventuraMagicaBase.elements.LectorArchivoTextoPlano;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;

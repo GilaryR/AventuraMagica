@@ -1,6 +1,8 @@
 
 package autonoma.AventuraMagica.elements;
 
+import autonoma.AventuraMagica.exception.DificultadNoValidaException;
+import autonoma.AventuraMagica.exception.NivelNoEncontradoException;
 import java.util.ArrayList;
 import java.util.List;
 
