@@ -1,10 +1,10 @@
 
 package autonoma.AventuraMagica.elements;
 
-import AventuraMagica.elements.Artefacto;
-import AventuraMagica.exception.InventarioLlenoException;
-import AventuraMagica.exception.JugadorSinVidaException;
-import AventuraMagicaBase.elements.SpriteMobile;
+import autonoma.AventuraMagica.elements.Artefacto;
+import autonoma.AventuraMagica.exception.InventarioLlenoException;
+import autonoma.AventuraMagica.exception.JugadorSinVidaException;
+import autonoma.AventuraMagicaBase.elements.SpriteMobile;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Luisa Fernanda Henao
+ * @author Alejandra Ortega 
  */
 
 /**

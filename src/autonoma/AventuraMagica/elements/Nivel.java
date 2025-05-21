@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 /**
  * Clase que representa un nivel del juego con funcionalidad completa
- * @author Luisa Fernanda Henao
+ * @author Alejandra Ortega
  */
 public class Nivel {
 
