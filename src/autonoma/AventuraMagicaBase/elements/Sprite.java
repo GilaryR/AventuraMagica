@@ -1,105 +1,99 @@
-
 package autonoma.AventuraMagicaBase.elements;
 
-import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Gilary
- * @since 13-05-2025
- * @version 1.0
- */
-/**
- * Clase base para todos los elementos visuales del juego
- */
-public abstract class Sprite {
-    protected int x;
-    protected int y;
-    protected int height;
-    protected int width;
-    protected Color color;
-    protected ImageIcon image;
-    protected GraphicContainer gameContainer;
-    
-    /**
-     * Constructor de la clase Sprite
-     * @param x Posición en el eje X
-     * @param y Posición en el eje Y
-     * @param height Alto del sprite
-     * @param width Ancho del sprite
-     */
-    public Sprite(int x, int y, int height, int width) {
+public class Sprite {
+    protected int x, y;
+    protected Image imagen;
+    protected int ancho, alto;
+    protected boolean visible;
+
+    public Sprite(int x, int y, String rutaImagen, int ancho, int alto) {
         this.x = x;
         this.y = y;
-        this.height = height;
-        this.width = width;
-        this.color = Color.BLACK;
+        this.ancho = ancho;
+        this.alto = alto;
+        this.visible = true;
+        cargarImagen(rutaImagen);
     }
-    
-    /**
-     * Verifica si el sprite está fuera del contenedor gráfico
-     * @return true si está fuera, false si está dentro
-     */
-    public boolean isOutOfGraphicContainer() {
-        if (gameContainer == null) return false;
-        Rectangle bounds = gameContainer.getBoundaries();
-        return x < 0 || y < 0 || x + width > bounds.width || y + height > bounds.height;
+
+    protected void cargarImagen(String rutaImagen) {
+        try {
+            ImageIcon icon = new ImageIcon(getClass().getResource(rutaImagen));
+            Image imgOriginal = icon.getImage();
+            
+            // Escalar la imagen al tamaño deseado
+            this.imagen = imgOriginal.getScaledInstance(
+                ancho, 
+                alto, 
+                Image.SCALE_SMOOTH);
+        } catch (Exception e) {
+            System.err.println("Error al cargar imagen: " + rutaImagen);
+            e.printStackTrace();
+            // Crear imagen de respaldo
+            this.imagen = new BufferedImage(ancho, alto, BufferedImage.TYPE_INT_ARGB);
+        }
     }
-    
-    /**
-     * Verifica si unas coordenadas específicas están fuera del contenedor gráfico
-     * @param x Posición X a verificar
-     * @param y Posición Y a verificar
-     * @param width Ancho del área a verificar
-     * @param height Alto del área a verificar
-     * @return true si está fuera, false si está dentro
-     */
-    public boolean isOutOfGraphicContainer(int x, int y, int width, int height) {
-        if (gameContainer == null) return false;
-        Rectangle bounds = gameContainer.getBoundaries();
-        return x < 0 || y < 0 || x + width > bounds.width || y + height > bounds.height;
+
+    public void dibujar(Graphics g) {
+        if (visible && imagen != null) {
+            g.drawImage(imagen, x, y, null);
+        }
     }
-    
-    /**
-     * Verifica si este sprite colisiona con otro
-     * @param other El otro sprite a verificar
-     * @return true si hay colisión, false en caso contrario
-     */
-    public boolean checkCollision(Sprite other) {
-        return x < other.x + other.width &&
-               x + width > other.x &&
-               y < other.y + other.height &&
-               y + height > other.y;
+
+    public int getX() {
+        return x;
     }
-    
-    /**
-     * Método abstracto para pintar el sprite
-     * @param g Objeto Graphics para dibujar
-     */
-    public abstract void paint(Graphics g);
-    
-    // Getters y setters
-    public int getX() { return x; }
-    public void setX(int x) { this.x = x; }
-    public int getY() { return y; }
-    public void setY(int y) { this.y = y; }
-    public int getHeight() { return height; }
-    public void setHeight(int height) { this.height = height; }
-    public int getWidth() { return width; }
-    public void setWidth(int width) { this.width = width; }
-    public Color getColor() { return color; }
-    public void setColor(Color color) { this.color = color; }
-    public javax.swing.ImageIcon getImage() { return image; }
-    public void setImage(javax.swing.ImageIcon image) { this.image = image; }
-    
-    /**
-     * Establece el contenedor gráfico al que pertenece este sprite
-     * @param gContainer Contenedor gráfico
-     */
-    public void setGraphicContainer(GraphicContainer gContainer) {
-        this.gameContainer = gContainer;
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public Image getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Image imagen) {
+        this.imagen = imagen;
+    }
+
+    public int getAncho() {
+        return ancho;
+    }
+
+    public void setAncho(int ancho) {
+        this.ancho = ancho;
+    }
+
+    public int getAlto() {
+        return alto;
+    }
+
+    public void setAlto(int alto) {
+        this.alto = alto;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, ancho, alto);
+
     }
 }

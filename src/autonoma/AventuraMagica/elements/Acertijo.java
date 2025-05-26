@@ -1,50 +1,44 @@
-
 package autonoma.AventuraMagica.elements;
 
 /**
- *
- * @author Alejandra Ortega
- */
-/**
- * Clase para los acertijos del juego
+ * Representa un acertijo o pregunta con su respuesta correspondiente.
+ * Permite verificar si una respuesta dada coincide con la respuesta correcta.
+ * 
+ * @author Luisa Fernanada Henao Posada
+ * @since 26-05-2025
+ * @version 2.0
  */
 public class Acertijo {
+    private String pregunta;
+    private String respuesta;
 
-    static boolean isResuelto() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    /**
+     * Crea un nuevo acertijo con la pregunta y respuesta especificadas.
+     * 
+     * @param pregunta El texto de la pregunta o acertijo
+     * @param respuesta La respuesta correcta para este acertijo
+     */
+    public Acertijo(String pregunta, String respuesta) {
+        this.pregunta = pregunta;
+        this.respuesta = respuesta;
     }
-    private int id;
-    private String descripcion;
-    private String solucion;
-    private boolean resuelto;
-    private int valorPuntos;
-    
-    public Acertijo(int id, String descripcion, String solucion, int valorPuntos) {
-        this.id = id;
-        this.descripcion = descripcion;
-        this.solucion = solucion;
-        this.resuelto = false;
-        this.valorPuntos = valorPuntos;
+
+    /**
+     * Verifica si la respuesta proporcionada coincide con la respuesta correcta.
+     * La comparación no distingue entre mayúsculas y minúsculas y elimina espacios
+     * en blanco al inicio y final de la respuesta proporcionada.
+     * 
+     * @param r La respuesta a verificar
+     * @return true si la respuesta coincide (ignorando mayúsculas/minúsculas), false en caso contrario
+     */
+    public boolean verificar(String r) {
+        return respuesta.equalsIgnoreCase(r.trim());
     }
-    
-    public String mostrarPista() {
-        return descripcion;
-    }
-    
-    public boolean verificarSolucion(String intento) {
-        if (solucion.equalsIgnoreCase(intento)) {
-            resolverAcertijo();
-            return true;
-        }
-        return false;
-    }
-    
-    public void resolverAcertijo() {
-        resuelto = true;
-        otorgarRecompensa();
-    }
-    
-    public void otorgarRecompensa() {
-        // Lógica para otorgar recompensa al jugador
-    }
+
+    /**
+     * Obtiene el texto de la pregunta.
+     * 
+     * @return El texto de la pregunta
+     */
+    public String getPregunta() { return pregunta; }
 }

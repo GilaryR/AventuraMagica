@@ -1,17 +1,12 @@
-
 package autonoma.AventuraMagicaBase.elements;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import autonoma.AventuraMagica.exception.EscrituraExcepcion;
 
 /**
- * Interfaz para la escritura de datos en diferentes formatos
+ *
+ * @author jgiugtiñut
  */
-interface Escritor {
-    /**
-     * Escribe una lista de líneas de texto
-     * @param lineas Lista de líneas a escribir
-     * @throws IOException Si ocurre un error durante la escritura
-     */
-    void escribir(ArrayList<String> lineas) throws IOException;
+public interface Escritor {
+     void escribir(String mensaje) throws EscrituraExcepcion;
+
 }
